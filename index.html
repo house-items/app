@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy</title>
+
+<style>
+:root {
+  --bg: #f5f5f7;
+  --card: #ffffff;
+  --text: #1d1d1f;
+  --sub: #6e6e73;
+  --accent: #0071e3;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 760px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-top: 28px;
+  font-size: 18px;
+}
+
+p, li {
+  color: var(--sub);
+  font-size: 15px;
+}
+
+.lang-switch {
+  text-align: right;
+  margin-bottom: 16px;
+}
+
+button {
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: var(--accent);
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
+.hidden { display: none; }
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card">
+
+    <div class="lang-switch">
+      <button onclick="setLang('en')">EN</button>
+      <button onclick="setLang('zh')">中文</button>
+    </div>
+
+    <!-- EN -->
+    <div id="en">
+      <h1>Privacy Policy</h1>
+      <p><strong>Effective Date:</strong> May 5, 2026</p>
+
+      <h2>1. Information Collection</h2>
+      <p>This app does not collect, store, or transmit any personal data to the developer’s servers. It may use iCloud to sync data across your devices.</p>
+
+      <h2>2. Data Usage</h2>
+      <p>Data is only used for syncing and is not accessed or shared by the developer.</p>
+
+      <h2>3. iCloud</h2>
+      <p>Data synced via iCloud is stored on Apple’s servers and protected by their policies. The developer cannot access it.</p>
+
+      <h2>4. Third-Party Services</h2>
+      <p>No analytics, ads, or tracking services are used.</p>
+
+      <h2>5. Contact</h2>
+      <p>Email: house-items@awibox.com</p>
+    </div>
+
+    <!-- ZH -->
+    <div id="zh">
+      <h1>隐私政策</h1>
+      <p><strong>生效日期：</strong>2026年5月5日</p>
+
+      <h2>1. 信息收集</h2>
+      <p>本应用不会收集或上传任何用户数据，仅可能通过 iCloud 在设备间同步。</p>
+
+      <h2>2. 数据使用</h2>
+      <p>数据仅用于同步，开发者无法访问或共享。</p>
+
+      <h2>3. iCloud</h2>
+      <p>数据存储在 Apple 服务器，并受其隐私政策保护。</p>
+
+      <h2>4. 第三方服务</h2>
+      <p>不使用任何广告、分析或跟踪服务。</p>
+
+      <h2>5. 联系方式</h2>
+      <p>邮箱：house-items@awibox.com</p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Privacy Policy
+  </div>
+</div>
+
+<script>
+function detectLang() {
+  const lang = navigator.language || navigator.userLanguage;
+  return lang.startsWith('zh') ? 'zh' : 'en';
+}
+
+function setLang(lang) {
+  localStorage.setItem('lang', lang);
+  document.getElementById('en').classList.add('hidden');
+  document.getElementById('zh').classList.add('hidden');
+  document.getElementById(lang).classList.remove('hidden');
+}
+
+(function () {
+  const saved = localStorage.getItem('lang');
+  setLang(saved || detectLang());
+})();
+</script>
+
+</body>
+</html>
